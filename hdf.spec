@@ -1,8 +1,8 @@
 Name: hdf
 Version: 4.2.14
-Release: 2
+Release: 1
 Summary: A general purpose library and file format for storing scientific data
-License: BSD
+License: IJG
 URL: https://portal.hdfgroup.org/
 Source0: https://support.hdfgroup.org/ftp/HDF/releases/HDF%{version}/src/%{name}-%{version}.tar.bz2
 Patch0: hdf-4.2.5-maxavailfiles.patch
@@ -134,5 +134,5 @@ make -j1 check
 %{_pkgdocdir}/examples/
 
 %changelog
-* Web Feb 03 2021 yangshaoxing <yangshaoxing@uniontech> - 4.2.14-2
+* Web Feb 03 2021 yangshaoxing <yangshaoxing@uniontech> - 4.2.14-1
 - Package init
