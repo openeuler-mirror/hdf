@@ -1,0 +1,17 @@
+--- configure.orig.ac	2017-06-24 23:00:04.000000000 +0200
++++ configure.ac	2017-07-21 22:13:19.695919835 +0200
+@@ -264,10 +264,10 @@
+       JNIFLAGS="$JNIFLAGS -I$JNI_INCLUDE_DIR"
+     done
+     ## Find junit for testing the JNI code
+-    AX_CHECK_CLASSPATH()
+-    CLASSPATH_ENV=$H4_CLASSPATH
+-    AX_CHECK_JUNIT()
+-    AX_CHECK_JAVA_HOME
++    ## AX_CHECK_CLASSPATH()
++    ## CLASSPATH_ENV=$H4_CLASSPATH
++    ## AX_CHECK_JUNIT()
++    ## AX_CHECK_JAVA_HOME
+ 
+     AC_MSG_RESULT([yes])
+   else
