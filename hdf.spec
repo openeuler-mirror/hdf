@@ -1,6 +1,6 @@
 Name: hdf
 Version: 4.2.14
-Release: 1
+Release: 2
 Summary: A general purpose library and file format for storing scientific data
 License: IJG
 URL: https://portal.hdfgroup.org/
@@ -80,7 +80,7 @@ rm config/*linux-gnu
 # for missing link to libdf.so
 export CFLAGS="%{optflags} -fPIC -I%{_includedir}/tirpc"
 export LIBS="-ltirpc"
-export FFLAGS="%{optflags} -fPIC -ffixed-line-length-none"
+export FFLAGS="%{optflags} -fPIC -ffixed-line-length-none -fallow-argument-mismatch"
 %configure --disable-production --disable-java --disable-netcdf \
  --enable-shared=no --enable-static=yes --enable-fortran %{!?el6:--with-szlib} \
  --includedir=%{_includedir}/%{name} --libdir=%{_libdir}/%{name}
@@ -134,5 +134,8 @@ make -j1 check
 %{_pkgdocdir}/examples/
 
 %changelog
+* Tue Aug 10 2021 wangyue <wangyue92@huawei.com> - 4.2.14-2
+- fix build error with gcc-10
+
 * Web Feb 03 2021 yangshaoxing <yangshaoxing@uniontech> - 4.2.14-1
 - Package init
