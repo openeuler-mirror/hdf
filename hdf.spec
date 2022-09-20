@@ -1,6 +1,6 @@
 Name: hdf
 Version: 4.2.14
-Release: 2
+Release: 3
 Summary: A general purpose library and file format for storing scientific data
 License: IJG
 URL: https://portal.hdfgroup.org/
@@ -19,6 +19,8 @@ Patch8: hdf-4.2.10-aarch64.patch
 # ppc64le support
 # https://bugzilla.redhat.com/show_bug.cgi?id=1134385
 Patch9: hdf-ppc64le.patch
+
+Patch10: add-riscv64-support.patch
 
 # Fix syntax error on epel6 builds
 # Use only if java is disabled
@@ -62,6 +64,7 @@ HDF development headers and libraries.
 %patch6 -p1 -b .examplesdir
 %patch8 -p1 -b .aarch64
 %patch9 -p1 -b .ppc64le
+%patch10 -p1 -b .riscv64
 
 find . -type f -name "*.h" -exec chmod 0644 '{}' \;
 find . -type f -name "*.c" -exec chmod 0644 '{}' \;
@@ -134,6 +137,9 @@ make -j1 check
 %{_pkgdocdir}/examples/
 
 %changelog
+* Tue Sep 20 2022 misaka00251 <misaka00251@misakanet.cn> - 4.2.14-3
+- Add riscv64 support (Derived from federa project, thanks to fedora team)
+
 * Tue Aug 10 2021 wangyue <wangyue92@huawei.com> - 4.2.14-2
 - fix build error with gcc-10
 
